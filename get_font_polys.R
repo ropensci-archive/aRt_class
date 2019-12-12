@@ -1,11 +1,12 @@
-remotes::install_github("yixuan/fontr")
-remotes::install_github("djnavarro/jasmines")
+#remotes::install_github("yixuan/fontr")
+#remotes::install_github("djnavarro/jasmines")
 
 library(fontr)
 library(sysfonts)
-library(jasmines)
 library(tidyr)
 library(dplyr)
+
+#get the google font
 font<-"Allura"
 font_add_google(name=font)
 
