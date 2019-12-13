@@ -45,7 +45,7 @@ ymax <- max(msg2$y, na.rm = T)
 xmin <- min(msg2$x, na.rm = T)
 ymin <- min(msg2$y, na.rm = T)
 
-plot(msg2$x[msg2$id == 1], msg2$y[msg2$id == 1], pch=".", type = "o", lwd = 3, ylim=c(ymin,ymax), xlim=c(xmin,xmax))
+plot(msg2$x[msg2$id == 1], msg2$y[msg2$id == 1], pch=".", type = "o", lwd = 3, ylim=c(ymin,ymax), xlim=c(xmin,xmax), axes=false)
 	lines(msg2$x[msg2$id == 2], msg2$y[msg2$id == 2], pch=".", type = "o", lwd = 3,)
 	lines(msg2$x[msg2$id == 3], msg2$y[msg2$id == 3], pch=".", type = "o", lwd = 3,)
 	lines(msg2$x[msg2$id == 4], msg2$y[msg2$id == 4], pch=".", type = "o", lwd = 3,)
