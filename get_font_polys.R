@@ -58,13 +58,12 @@ seed_bubbles(20) %>%
 
 my_image <- readPNG("/cloud/project/blahh.png")
 
-plot(xmin:xmax, type='n', ylim=c(ymin,ymax), xlim=c(xmin,xmax), axes=false)
+plot(-10:25, type='n', ylim=c(-20,20), xlim=c(-10, 25), axes=false)
 # Get the plot information so the image will fill the plot box, and draw it
 lim <- par()
 rasterImage(my_image, 
-						xleft=xmin, xright=xmax, 
-						ybottom=ymin, ytop=ymax)
-grid()
+						xleft=-10, xright=25, 
+						ybottom=-20, ytop=20)
 
 #Add your plot !
 lines(msg2$x[msg2$id == 1], msg2$y[msg2$id == 1], pch=".", type = "o", lwd = 3,)
