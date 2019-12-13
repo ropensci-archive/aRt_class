@@ -47,3 +47,5 @@ dat %>%
 ```
 
 ![](README_files/figure-gfm/delaunay-1.png)<!-- -->
+
+![](words_4.png)
