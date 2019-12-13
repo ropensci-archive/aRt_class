@@ -49,7 +49,7 @@ plot(msg2$x[msg2$id == 1], msg2$y[msg2$id == 1], pch=".", type = "o", lwd = 3, y
 polygon(c(b$time, rev(c$time)), c(b$y, rev(c$z)),col = "gray")
 	lines(msg2$x[msg2$id == 2], msg2$y[msg2$id == 2], pch=".", type = "o", lwd = 3,)
 	lines(msg2$x[msg2$id == 3], msg2$y[msg2$id == 3], pch=".", type = "o", lwd = 3,)
-	lines(msg2$x[msg2$id == 4], msg2$y[msg2$id ==s 4], pch=".", type = "o", lwd = 3,)
+	lines(msg2$x[msg2$id == 4], msg2$y[msg2$id == 4], pch=".", type = "o", lwd = 3,)
 	lines(msg2$x[msg2$id == 5], msg2$y[msg2$id == 5], pch=".", type = "o", lwd = 3,)
 	lines(msg2$x[msg2$id == 6], msg2$y[msg2$id == 6], pch=".", type = "o", lwd = 3,)
 	lines(msg2$x[msg2$id == 7], msg2$y[msg2$id == 7], pch=".", type = "o", lwd = 3,)
