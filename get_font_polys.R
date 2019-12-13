@@ -7,6 +7,9 @@ library(tidyr)
 library(dplyr)
 library(jsonlite)
 library(curl)
+library(jasmines)
+library(ambient)
+library(png)
 
 #get the google font
 font<-"Gravitas One"
@@ -45,14 +48,34 @@ ymax <- max(msg2$y, na.rm = T)
 xmin <- min(msg2$x, na.rm = T)
 ymin <- min(msg2$y, na.rm = T)
 
-plot(msg2$x[msg2$id == 1], msg2$y[msg2$id == 1], pch=".", type = "o", lwd = 3, ylim=c(ymin,ymax), xlim=c(xmin,xmax), axes=false)
-	lines(msg2$x[msg2$id == 2], msg2$y[msg2$id == 2], pch=".", type = "o", lwd = 3,)
-	lines(msg2$x[msg2$id == 3], msg2$y[msg2$id == 3], pch=".", type = "o", lwd = 3,)
-	lines(msg2$x[msg2$id == 4], msg2$y[msg2$id == 4], pch=".", type = "o", lwd = 3,)
-	lines(msg2$x[msg2$id == 5], msg2$y[msg2$id == 5], pch=".", type = "o", lwd = 3,)
-	lines(msg2$x[msg2$id == 6], msg2$y[msg2$id == 6], pch=".", type = "o", lwd = 3,)
-	lines(msg2$x[msg2$id == 7], msg2$y[msg2$id == 7], pch=".", type = "o", lwd = 3,)
-	lines(msg2$x[msg2$id == 8], msg2$y[msg2$id == 8], pch=".", type = "o", lwd = 3,)
-	lines(msg2$x[msg2$id == 9], msg2$y[msg2$id == 9], pch=".", type = "o", lwd = 3,)
-	lines(msg2$x[msg2$id == 10], msg2$y[msg2$id == 10], pch=".", type = "o", lwd = 3,)
 	
+seed_bubbles(20) %>%
+		time_tempest(iterations = 28, curl_seed = 43) %>%
+		mutate(order = time) %>%
+		style_ribbon(palette = palette_manual("lightseagreen", "ghostwhite", "darkturqoise", "ghostwhite" ), alpha_decay = 0.2, background= "white") %>%
+		export_image("/cloud/project/blahh.png")
+
+
+my_image <- readPNG("/cloud/project/blahh.png")
+
+plot(xmin:xmax, type='n', ylim=c(ymin,ymax), xlim=c(xmin,xmax), axes=false)
+# Get the plot information so the image will fill the plot box, and draw it
+lim <- par()
+rasterImage(my_image, 
+						xleft=xmin, xright=xmax, 
+						ybottom=ymin, ytop=ymax)
+grid()
+
+#Add your plot !
+lines(msg2$x[msg2$id == 1], msg2$y[msg2$id == 1], pch=".", type = "o", lwd = 3,)
+lines(msg2$x[msg2$id == 2], msg2$y[msg2$id == 2], pch=".", type = "o", lwd = 3,)
+lines(msg2$x[msg2$id == 3], msg2$y[msg2$id == 3], pch=".", type = "o", lwd = 3,)
+lines(msg2$x[msg2$id == 4], msg2$y[msg2$id == 4], pch=".", type = "o", lwd = 3,)
+lines(msg2$x[msg2$id == 5], msg2$y[msg2$id == 5], pch=".", type = "o", lwd = 3,)
+lines(msg2$x[msg2$id == 6], msg2$y[msg2$id == 6], pch=".", type = "o", lwd = 3,)
+lines(msg2$x[msg2$id == 7], msg2$y[msg2$id == 7], pch=".", type = "o", lwd = 3,)
+lines(msg2$x[msg2$id == 8], msg2$y[msg2$id == 8], pch=".", type = "o", lwd = 3,)
+lines(msg2$x[msg2$id == 9], msg2$y[msg2$id == 9], pch=".", type = "o", lwd = 3,)
+lines(msg2$x[msg2$id == 10], msg2$y[msg2$id == 10], pch=".", type = "o", lwd = 3,)
+
+
