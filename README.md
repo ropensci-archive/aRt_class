@@ -49,3 +49,26 @@ dat %>%
 ![](README_files/figure-gfm/delaunay-1.png)<!-- -->
 
 ![](words_4.png)
+
+Rainbow fish
+
+``` r
+fish<-data.frame(
+    x = cos(1:10000) - sin(1:10000)^2 / sqrt(2),
+    y = cos(1:10000) * sin(1:10000)
+)
+
+
+fish$id<-1
+
+fish[-10000,] %>%
+    time_tempest(iterations = 10, curl_seed = 31) %>%
+    dplyr::mutate(order = time) %>%
+    style_ribbon(
+        palette = rainbow,
+        background = "black",
+        seed_fill = "#8c8c8999"
+    ) 
+```
+
+![](README_files/figure-gfm/rainbow_fish-1.png)<!-- -->
