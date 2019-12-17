@@ -60,7 +60,9 @@ dat %>%
 ![](words_4.png)
 
 Rainbow fish
+
 ```{r rainbow_fish, message = FALSE, fig.width = 10, fig.height=10, dpi=300, cache=TRUE}
+
 fish<-data.frame(
 	x = cos(1:10000) - sin(1:10000)^2 / sqrt(2),
 	y = cos(1:10000) * sin(1:10000)
